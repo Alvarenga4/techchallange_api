@@ -9,11 +9,9 @@ module.exports = {
         user
       })
     } catch (error) {
-      let e = [];
-      e.push(error);
+      
       return res.status(500).json({
         title: 'Falha ao inserir usuário, tente novamente',
-        e
       })
     }
   },
