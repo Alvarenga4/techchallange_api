@@ -1,21 +1,21 @@
-const Brand = require('../models/Brands');
+const Model = require('../models/Models');
 const Versions = require('../models/Versions');
 
 module.exports = {
   async index(req, res) {
     try {
-      const { brand_id } = req.params;
+      const { model_id } = req.params;
 
-      const brand = await Brand.findByPk(brand_id, {
+      const model = await Model.findByPk(model_id, {
         include:
         {
-          association: 'versions'
+          association: 'version'
         }
       });
 
 
       return res.status(200).json({
-        brand
+        model
       })
     } catch (error) {
       let e = [];
@@ -45,18 +45,18 @@ module.exports = {
 
   async store(req, res) {
     try {
-      const { brand_id } = req.params;
+      const { model_id } = req.params;
       const { name } = req.body;
 
-      const verify_brand = await Brand.findByPk(brand_id);
+      const verify_model = await Model.findByPk(model_id);
 
-      if (!verify_brand) return res.status(404).json({err: 'Marca informada não existe'})
+      if (!verify_model) return res.status(404).json({err: 'Marca informada não existe'})
 
       const [version, created] = await Versions.findOrCreate({
         where: { name },
         defaults: {
           name,
-          brand_id,
+          model_id,
           active: 1
         }
        });

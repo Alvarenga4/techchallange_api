@@ -3,6 +3,7 @@ const express = require('express');
 const UserController = require('./controllers/UserController');
 const ColorController = require('./controllers/ColorController');
 const BrandController = require('./controllers/BrandController');
+const ModelsController = require('./controllers/ModelsController');
 const VersionsController = require('./controllers/VersionsController');
 
 const routes = express.Router();
@@ -32,10 +33,17 @@ routes.post('/v1/brand', BrandController.store);
 routes.put('/v1/brand/:id', BrandController.update);
 routes.delete('/v1/brand/:id', BrandController.delete);
 
+// Models Routes
+routes.get('/v1/model/:brand_id', ModelsController.index);
+routes.get('/v1/model/:id', ModelsController.show);
+routes.post('/v1/model/:brand_id', ModelsController.store);
+routes.put('/v1/model/:id', ModelsController.update);
+routes.delete('/v1/model/:id', ModelsController.delete);
+
 // Versions Routes
-routes.get('/v1/version/:brand_id', VersionsController.index);
+routes.get('/v1/version/:model_id', VersionsController.index);
 routes.get('/v1/version/:id', VersionsController.show);
-routes.post('/v1/version/:brand_id', VersionsController.store);
+routes.post('/v1/version/:model_id', VersionsController.store);
 routes.put('/v1/version/:id', VersionsController.update);
 routes.delete('/v1/version/:id', VersionsController.delete);
 

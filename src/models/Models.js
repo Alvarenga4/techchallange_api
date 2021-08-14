@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 
-class Versions extends Model {
+class Models extends Model {
   static init(sequelize) {
     super.init({
       name: DataTypes.STRING,
@@ -11,8 +11,9 @@ class Versions extends Model {
   }
   
   static associate(models) {
-    this.belongsTo(models.Models, { foreignKey: 'model_id', as: 'brand' })
+    this.belongsTo(models.Brands, { foreignKey: 'brand_id', as: 'brand' })
+    this.hasMany(models.Versions, { foreignKey: 'model_id', as: 'version' })
   }
 }
 
-module.exports = Versions
+module.exports = Models

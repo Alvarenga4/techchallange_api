@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return await queryInterface.createTable('versions', { 
+    return await queryInterface.createTable('models', { 
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -13,10 +13,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      model_id: {
+      brand_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'models', key: 'id' },
+        references: { model: 'brands', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
