@@ -64,6 +64,18 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },
+      year_manufacture: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      year_model: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      active: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

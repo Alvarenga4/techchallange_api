@@ -5,6 +5,8 @@ const ColorController = require('./controllers/ColorController');
 const BrandController = require('./controllers/BrandController');
 const ModelsController = require('./controllers/ModelsController');
 const VersionsController = require('./controllers/VersionsController');
+const VehicleOptionsController = require('./controllers/VehicleOptionsController');
+const AnnoucementController = require('./controllers/AnnoucementController');
 
 const routes = express.Router();
 
@@ -46,5 +48,19 @@ routes.get('/v1/version/:id', VersionsController.show);
 routes.post('/v1/version/:model_id', VersionsController.store);
 routes.put('/v1/version/:id', VersionsController.update);
 routes.delete('/v1/version/:id', VersionsController.delete);
+
+// VehicleOptions Routes
+routes.get('/v1/vehicleoptions', VehicleOptionsController.index);
+routes.get('/v1/vehicleoptions/:id', VehicleOptionsController.show);
+routes.post('/v1/vehicleoptions', VehicleOptionsController.store);
+routes.put('/v1/vehicleoptions/:id', VehicleOptionsController.update);
+routes.delete('/v1/vehicleoptions/:id', VehicleOptionsController.delete);
+
+// Annoucement Routes
+routes.get('/v1/annoucement', AnnoucementController.index);
+routes.get('/v1/annoucement/:id', AnnoucementController.show);
+routes.post('/v1/annoucement', AnnoucementController.store);
+routes.put('/v1/annoucement/:id', AnnoucementController.update);
+routes.delete('/v1/annoucement/:id', AnnoucementController.delete);
 
 module.exports = routes;

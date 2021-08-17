@@ -8,6 +8,10 @@ class Color extends Model {
       sequelize
     })
   }
+
+  static associate(models) {
+    this.hasMany(models.Annoucements, { foreignKey: 'color_id', as: 'annoucement' })
+  }
 }
 
 module.exports = Color
