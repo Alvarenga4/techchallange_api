@@ -7,6 +7,7 @@ const ModelsController = require('./controllers/ModelsController');
 const VersionsController = require('./controllers/VersionsController');
 const VehicleOptionsController = require('./controllers/VehicleOptionsController');
 const AnnoucementController = require('./controllers/AnnoucementController');
+const SimulationController = require('./controllers/SimulationController');
 
 const routes = express.Router();
 
@@ -62,5 +63,11 @@ routes.get('/v1/annoucement/:id', AnnoucementController.show);
 routes.post('/v1/annoucement', AnnoucementController.store);
 routes.put('/v1/annoucement/:id', AnnoucementController.update);
 routes.delete('/v1/annoucement/:id', AnnoucementController.delete);
+
+routes.get('/v1/simulation', SimulationController.index);
+routes.get('/v1/simulation/:id', SimulationController.show);
+routes.post('/v1/simulation', SimulationController.store);
+routes.put('/v1/simulation/:id', SimulationController.update);
+routes.delete('/v1/simulation/:id', SimulationController.delete);
 
 module.exports = routes;

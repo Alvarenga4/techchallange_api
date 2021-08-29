@@ -8,6 +8,7 @@ const Versions = require('../src/models/Versions');
 const Models = require('../src/models/Models');
 const VehicleOptions = require('../src/models/VehicleOptions');
 const Annoucements = require('../src/models/Annoucements');
+const Simulation = require('../src/models/Simulation');
 
 const connection = new Sequelize(dbConfig);
 
@@ -18,10 +19,12 @@ Models.init(connection);
 Versions.init(connection);
 VehicleOptions.init(connection);
 Annoucements.init(connection);
+Simulation.init(connection);
 
 Brands.associate(connection.models);
 Models.associate(connection.models);
 Versions.associate(connection.models);
 Annoucements.associate(connection.models);
+Simulation.associate(connection.models);
 
 module.exports = connection;

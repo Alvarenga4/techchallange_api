@@ -3,7 +3,7 @@ const Annoucements = require('../models/Annoucements');
 module.exports = {
   async index(req, res) {
     try {
-      const annoucmenet = await Annoucements.findAndCountAll(
+      const annoucement = await Annoucements.findAndCountAll(
         {where: {active: 1},
         include: [
           {
@@ -13,7 +13,7 @@ module.exports = {
       });
 
       return res.status(200).json({
-        annoucmenet
+        annoucement
       })
     } catch (error) {
       let e = [];
@@ -28,9 +28,9 @@ module.exports = {
   async show(req, res) {
     try {
       const {id} = req.params;
-      const annoucmenet = await Annoucements.findByPk(id);
+      const annoucement = await Annoucements.findByPk(id);
 
-      return res.status(200).json(annoucmenet)
+      return res.status(200).json(annoucement)
     } catch (error) {
       let e = [];
       e.push(error);
@@ -59,7 +59,7 @@ module.exports = {
         year_model,
       } = req.body;  
 
-      const annoucmenet = await Annoucements.create({
+      const annoucement = await Annoucements.create({
         description,
         km,
         sale_value,
@@ -76,7 +76,7 @@ module.exports = {
 
       return res.status(201).json({
         title: 'Marca cadastrada com sucesso',
-        annoucmenet
+        annoucement
       })
     } catch (error) {
       console.log(error)
@@ -100,7 +100,7 @@ module.exports = {
         verifyAnnoucements === null
       ) return res.status(404).json({msg: 'O anúncio informado não existe'})
 
-      const annoucmenet = await Annoucements.update({
+      const annoucement = await Annoucements.update({
         description,
         km,
         sale_value,
@@ -119,7 +119,7 @@ module.exports = {
         id
       }});
 
-      return res.status(200).json({msg: 'Marca atualizado com sucesso', annoucmenet})
+      return res.status(200).json({msg: 'Marca atualizado com sucesso', annoucement})
     } catch (error) {
       console.log(error)
       let e = [];
@@ -134,9 +134,9 @@ module.exports = {
   async delete(req, res) {
     try {
       const {id} = req.params;
-      const annoucmenet = await Annoucements.destroy({where: {id}});
+      const annoucement = await Annoucements.destroy({where: {id}});
 
-      return res.status(200).json({msg: 'Marca deletado com sucesso', annoucmenet})
+      return res.status(200).json({msg: 'Marca deletado com sucesso', annoucement})
     } catch (error) {
       let e = [];
       e.push(error);

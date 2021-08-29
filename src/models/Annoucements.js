@@ -17,6 +17,7 @@ class Annoucements extends Model {
   }
 
   static associate(models) {
+    this.hasMany(models.Simulation, {foreignKey: 'annoucement_id', as: 'simulations'});
     this.belongsTo(models.Color, { foreignKey: 'color_id', as: 'color' })
     this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' })
     this.belongsTo(models.Brands, { foreignKey: 'brand_id', as: 'brand' })
