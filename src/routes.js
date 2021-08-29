@@ -8,6 +8,7 @@ const VersionsController = require('./controllers/VersionsController');
 const VehicleOptionsController = require('./controllers/VehicleOptionsController');
 const AnnoucementController = require('./controllers/AnnoucementController');
 const SimulationController = require('./controllers/SimulationController');
+const AnnoucementOptionsController = require('./controllers/AnnoucementOptionsController');
 
 const routes = express.Router();
 
@@ -64,6 +65,14 @@ routes.post('/v1/annoucement', AnnoucementController.store);
 routes.put('/v1/annoucement/:id', AnnoucementController.update);
 routes.delete('/v1/annoucement/:id', AnnoucementController.delete);
 
+//Annoucment Options
+routes.get('/v1/annoucementoptions', AnnoucementOptionsController.index);
+routes.get('/v1/annoucementoptions/:id', AnnoucementOptionsController.show);
+routes.post('/v1/annoucementoptions', AnnoucementOptionsController.store);
+routes.put('/v1/annoucementoptions/:id', AnnoucementOptionsController.update);
+routes.delete('/v1/annoucementoptions/:id', AnnoucementOptionsController.delete);
+
+//Simulation
 routes.get('/v1/simulation', SimulationController.index);
 routes.get('/v1/simulation/:id', SimulationController.show);
 routes.post('/v1/simulation', SimulationController.store);

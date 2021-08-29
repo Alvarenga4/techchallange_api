@@ -1,16 +1,18 @@
 const { Model, DataTypes } = require('sequelize');
 
-class VehicleOptions extends Model {
+class AnnoucementOptions extends Model {
   static init(sequelize) {
     super.init({
-      name: DataTypes.STRING,
+      annoucement_id: DataTypes.INTEGER,
+      options_id: DataTypes.INTEGER
     }, {
       sequelize
     })
   }
 
   static associate(models) {
+
   }
 }
 
-module.exports = VehicleOptions;
+module.exports = AnnoucementOptions;

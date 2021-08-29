@@ -4,6 +4,10 @@ class Simulation extends Model {
   static init(sequelize) {
     super.init({
       score: DataTypes.STRING,
+      name: DataTypes.STRING,
+      cpf: DataTypes.STRING,
+      tellphone: DataTypes.STRING,
+      state: DataTypes.STRING,
       email: DataTypes.STRING,
       is_approved: DataTypes.BOOLEAN,
       prohibited: DataTypes.INTEGER

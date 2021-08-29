@@ -20,7 +20,27 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      cpf: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      birthday: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      tellphone: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      state: {
         type: Sequelize.STRING,
         allowNull: false,
       },

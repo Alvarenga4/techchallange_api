@@ -37,7 +37,13 @@ module.exports = {
     try {
       let is_approved = false;
       const { annoucement_id } = req.headers;
-      const { email } = req.body;
+      const { 
+        email,
+        name,
+        cpf,
+        tellphone,
+        state,
+      } = req.body;
 
       const score = Math.floor(Math.random() * 1000);
 
@@ -46,7 +52,12 @@ module.exports = {
       condition.approved ? is_approved = true : is_approved = false;
 
       const simulation = await Simulation.create({
-        email, 
+        score,
+        email,
+        name,
+        cpf,
+        tellphone,
+        state,
         core: score.toString(), 
         annoucement_id: parseInt(annoucement_id), 
         is_approved, 

@@ -52,18 +52,13 @@ module.exports = {
 
       if (!verify_model) return res.status(404).json({err: 'Marca informada não existe'})
 
-      const [version, created] = await Versions.findOrCreate({
-        where: { name },
-        defaults: {
-          name,
-          model_id,
-          active: 1
-        }
+      const version = await Versions.create({
+        name,
+        model_id,
+        active: 1
        });
-
       return res.status(201).json({
         title: 'Versão cadastrada com sucesso',
-        created,
         version
       })
     } catch (error) {

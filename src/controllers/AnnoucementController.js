@@ -28,7 +28,13 @@ module.exports = {
   async show(req, res) {
     try {
       const {id} = req.params;
-      const annoucement = await Annoucements.findByPk(id);
+      const annoucement = await Annoucements.findByPk(id, {
+        include: [
+          {
+            all: true,
+          }
+        ]
+      });
 
       return res.status(200).json(annoucement)
     } catch (error) {
@@ -75,7 +81,7 @@ module.exports = {
       });
 
       return res.status(201).json({
-        title: 'Marca cadastrada com sucesso',
+        title: 'Anúncio cadastrado com sucesso',
         annoucement
       })
     } catch (error) {
