@@ -7,6 +7,7 @@ class Simulation extends Model {
       name: DataTypes.STRING,
       cpf: DataTypes.STRING,
       tellphone: DataTypes.STRING,
+      birthday: DataTypes.STRING,
       state: DataTypes.STRING,
       email: DataTypes.STRING,
       is_approved: DataTypes.BOOLEAN,
