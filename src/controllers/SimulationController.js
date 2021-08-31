@@ -43,6 +43,7 @@ module.exports = {
         cpf,
         tellphone,
         state,
+        birthday,
       } = req.body;
 
       const score = Math.floor(Math.random() * 1000);
@@ -57,6 +58,7 @@ module.exports = {
         name,
         cpf,
         tellphone,
+        birthday,
         state,
         core: score.toString(), 
         annoucement_id: parseInt(annoucement_id), 
